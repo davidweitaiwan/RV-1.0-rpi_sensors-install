@@ -376,7 +376,7 @@ InstallDocker()
     echo "RUN . /opt/ros/\${ROS_DISTRO}/setup.sh && colcon build --packages-select $pack_name vehicle_interfaces" >> Dockerfile
     
     # Dockerfile Installation
-    sudo docker build -t ros2_docker .
+    sudo docker buildx build --platform=linux/arm64 -t ros2_docker .
 }
 
 EnvSetting ()
